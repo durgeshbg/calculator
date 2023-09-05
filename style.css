@@ -1,3 +1,9 @@
+:root {
+    --sand: rgb(247, 191, 126);
+    --light-sand: rgb(250, 222, 189);
+    --dark-sand: rgb(207, 144, 72);
+}
+
 * {
     margin: 0;
     border: 0;
@@ -7,4 +13,31 @@
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.h1 {
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--sand);
+    padding: 20px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sand);
+    width: 50vw;
+    height: 60vh;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.display {
+    background-color: var(--light-sand);
+    width: auto;
+    height: 6vh;
+    border-radius: 10px;
+    padding: 5px;
 }
