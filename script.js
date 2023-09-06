@@ -8,18 +8,25 @@ const multiply = (a, b) => a * b;
 const operate = (a, op, b) => {
 	a = parseInt(a);
 	b = parseInt(b);
+	let result = 0;
 	switch (op) {
 		case '+':
-			return add(a, b);
+			result = add(a, b);
+			break;
 		case '-':
-			return subtract(a, b);
+			result = subtract(a, b);
+			break;
 		case '/':
-			return divison(a, b);
+			result = divison(a, b);
+			break;
 		case '*':
-			return multiply(a, b);
+			result = multiply(a, b);
+			break;
 		default:
 			break;
 	}
+	clearText();
+	updateText(result);
 };
 
 const clearText = () => {
@@ -38,15 +45,15 @@ document.querySelectorAll('.digit').forEach((button) =>
 
 document.querySelectorAll('.operator').forEach((button) =>
 	button.addEventListener('click', (e) => {
+		let values = display.textContent.split(' ');
+		if (values.length === 3) operate(...values);
 		updateText(` ${e.target.textContent} `);
 	})
 );
 
 document.querySelector('.calculate').addEventListener('click', (e) => {
-	let values = display.textContent.split(" ");
-	let result = operate(...values);
-	clearText();
-	updateText(result);
+	let values = display.textContent.split(' ');
+	operate(...values);
 });
 
 document.querySelector('.clear').addEventListener('click', clearText);
