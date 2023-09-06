@@ -53,7 +53,7 @@ document.querySelectorAll('.operator').forEach((button) =>
 
 document.querySelector('.calculate').addEventListener('click', (e) => {
 	let values = display.textContent.split(' ');
-	if(values.length === 3) operate(...values);
+	if (values.length === 3) operate(...values);
 });
 
 document.querySelector('.clear').addEventListener('click', clearText);
