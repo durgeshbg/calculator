@@ -22,6 +22,10 @@ const operate = (a, op, b) => {
 	}
 };
 
+const clearText = () => {
+	display.textContent = '';
+};
+
 const updateText = (text) => {
 	display.textContent += text;
 };
@@ -39,8 +43,10 @@ document.querySelectorAll('.operator').forEach((button) =>
 );
 
 document.querySelector('.calculate').addEventListener('click', (e) => {
-	let values = display.textContent.split(' ');
+	let values = display.textContent.split(" ");
 	let result = operate(...values);
 	clearText();
 	updateText(result);
 });
+
+document.querySelector('.clear').addEventListener('click', clearText);
