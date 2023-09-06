@@ -6,6 +6,8 @@ const divison = (a, b) => a / b;
 const multiply = (a, b) => a * b;
 
 const operate = (a, op, b) => {
+	a = parseInt(a);
+	b = parseInt(b);
 	switch (op) {
 		case '+':
 			return add(a, b);
@@ -35,3 +37,10 @@ document.querySelectorAll('.operator').forEach((button) =>
 		updateText(` ${e.target.textContent} `);
 	})
 );
+
+document.querySelector('.calculate').addEventListener('click', (e) => {
+	let values = display.textContent.split(' ');
+	let result = operate(...values);
+	clearText();
+	updateText(result);
+});
